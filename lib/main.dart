@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:login_dashboad_flutter/login.dart';
-import 'package:login_dashboad_flutter/registration.dart';
+import 'package:login/Splash.dart';
+import 'package:login/login.dart';
+import 'package:login/registration.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -15,9 +17,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "registration",
-      routes: {"login":(context)=>const MyLogin(),
-      'registration':(context)=>myregistration()},
+      initialRoute: "login",
+      routes: {"splash":(context)=>const Splash(),
+      'registration':(context)=>myregistration(),'login':(context)=>MyLogin()},
 
       title: 'Login Dashboard',
       theme: ThemeData(

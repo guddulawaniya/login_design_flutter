@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({Key? key}) : super(key: key);
@@ -8,6 +9,10 @@ class MyLogin extends StatefulWidget {
 }
 
 class _MyLoginState extends State<MyLogin> {
+
+
+  final _formkey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,36 +31,59 @@ class _MyLoginState extends State<MyLogin> {
               style: TextStyle(color: Colors.white,fontSize: 50),
               ),
             ),
+
             SingleChildScrollView(
+                key: _formkey,
               child: Container(
-                padding: EdgeInsets.only( top: MediaQuery.of(context).size.height*0.5,right: 35,left: 35),
+                padding: EdgeInsets.only( top: MediaQuery.of(context).size.height*0.45,right: 35,left: 35),
                 child: Column(
                   children: [
-                    TextField(
+
+                    TextFormField(
                       decoration: InputDecoration(
                         fillColor: Colors.grey.shade100,
                         filled: true,
-                        hintText: 'Email',
+                        labelText: 'Email',
                         border: OutlineInputBorder(
                             borderRadius:  BorderRadius.circular(10)),
 
                       ),
+
+                      validator: (value){
+                        if(value!.isEmpty)
+                          {
+                            return "Enter the Correct Email";
+                          }
+                        else
+                          {
+                            return null;
+                          }
+                      },
                     ),
 
                     SizedBox(
                       height: 30,
                     ),
-                    TextField(
+                    TextFormField(
                       decoration: InputDecoration(
                         fillColor: Colors.grey.shade100,
                         filled: true,
-                        hintText: 'Password',
+                        labelText: 'Password',
                         border: OutlineInputBorder(
                           borderRadius:  BorderRadius.circular(10)),
                       ),
+
+                      validator: (value)
+                      {
+                        if(value!.isEmpty)
+                          {
+                            return "Please Enter Correct Password";
+                          }
+                        return null;
+                      },
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 40,
                     ),
                     Row(
                       mainAxisAlignment:  MainAxisAlignment.spaceBetween,
@@ -63,13 +91,27 @@ class _MyLoginState extends State<MyLogin> {
                         CircleAvatar(
                           radius: 30,
                         backgroundColor: Color(0xff4c505b),
-                        child: IconButton(onPressed: () {},
-                          icon: Icon(Icons.arrow_forward)),
+                        child: IconButton(onPressed: () {
+                          setState(() {
+                            if(_formkey.currentState!.validate())
+                              {
+                                Navigator.pushNamed(context, "registration");
+
+                              }
+
+                          });
+
+
+
+                        },
+
+                          icon: Icon(Icons.arrow_forward)
+                        ),
                         ),
                       ],
                     ),
 
-                    SizedBox(height: 40,),
+                    SizedBox(height: 50,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

@@ -30,14 +30,14 @@ class _myregistrationState extends State<myregistration> {
             SingleChildScrollView(
               padding: EdgeInsets.only(bottom: 30),
               child: Container(
-                padding: EdgeInsets.only( top: MediaQuery.of(context).size.height*0.5,right: 35,left: 35),
+                padding: EdgeInsets.only( top: MediaQuery.of(context).size.height*0.35,right: 25,left: 25),
                 child: Column(
                   children: [
                     TextField(
                       decoration: InputDecoration(
                         fillColor: Colors.grey.shade100,
                         filled: true,
-                        hintText: 'First Name ',
+                        labelText: 'First Name ',
                         border: OutlineInputBorder(
                             borderRadius:  BorderRadius.circular(10)),
 
@@ -50,7 +50,7 @@ class _myregistrationState extends State<myregistration> {
                       decoration: InputDecoration(
                         fillColor: Colors.grey.shade100,
                         filled: true,
-                        hintText: 'Last Name ',
+                        labelText: 'Last Name ',
                         border: OutlineInputBorder(
                             borderRadius:  BorderRadius.circular(10)),
 
@@ -63,7 +63,7 @@ class _myregistrationState extends State<myregistration> {
                       decoration: InputDecoration(
                         fillColor: Colors.grey.shade100,
                         filled: true,
-                        hintText: 'Email',
+                        labelText: 'Email',
                         border: OutlineInputBorder(
                             borderRadius:  BorderRadius.circular(10)),
 
@@ -74,13 +74,15 @@ class _myregistrationState extends State<myregistration> {
                       height: 30,
                     ),
                     TextField(
+
                       decoration: InputDecoration(
                         fillColor: Colors.grey.shade100,
                         filled: true,
-                        hintText: 'Password',
+                        labelText: 'Password',
                         border: OutlineInputBorder(
                             borderRadius:  BorderRadius.circular(10)),
                       ),
+
                     ),
                     SizedBox(
                       height: 40,
@@ -130,5 +132,8 @@ class _myregistrationState extends State<myregistration> {
         ),
       ),
     );
+
   }
+
+
 }
